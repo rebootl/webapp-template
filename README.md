@@ -1,4 +1,4 @@
-# reboot-webapp-template
+# webapp-template
 
 _This is currently a work-in-progress project._
 
