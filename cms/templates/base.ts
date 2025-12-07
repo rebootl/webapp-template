@@ -33,10 +33,10 @@ export default (content: string, req: Request) => {
   const ref = req.path || "";
   const currentLanguage = req.lang || "en";
   const loggedIn = req.locals.loggedIn || false;
-  let messageType = req.query.messageType || null;
+  let messageKey = req.query.message || null;
   const navLabels = locale[currentLanguage].nav;
 
-  messageType = typeof messageType === "string" ? messageType : null;
+  messageKey = typeof messageKey === "string" ? messageKey : null;
 
   return `
 <!DOCTYPE html>
@@ -72,10 +72,10 @@ export default (content: string, req: Request) => {
     </header>
     <main>
       ${
-    messageType
+    messageKey
       ? `
       <section>
-        ${renderMessage(messageType, currentLanguage)}
+        ${renderMessage(messageKey, currentLanguage)}
       </section>`
       : ""
   }

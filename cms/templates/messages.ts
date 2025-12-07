@@ -53,14 +53,14 @@ const messages: {
 };
 
 export const renderMessage = (
-  messageType: string | null,
+  messageKey: string | null,
   currentLanguage = "en",
 ): string => {
-  if (!messageType || !messages[messageType]) {
+  if (!messageKey || !messages[messageKey]) {
     return "";
   }
 
-  const message = messages[messageType];
+  const message = messages[messageKey];
   const text = message[currentLanguage] || message["en"] || "";
 
   if (!text) {
@@ -68,8 +68,8 @@ export const renderMessage = (
   }
 
   // Determine if it's a success or error message based on the messageType prefix
-  const isSuccess = messageType.startsWith("success");
-  const isError = messageType.startsWith("error");
+  const isSuccess = messageKey.startsWith("success");
+  const isError = messageKey.startsWith("error");
 
   if (isSuccess) {
     return `<div class="success">${text}</div>`;
@@ -82,14 +82,14 @@ export const renderMessage = (
 };
 
 export const renderMessages = (
-  messageTypes: string[] | null,
+  messageKey: string[] | null,
   currentLanguage = "en",
 ): string => {
-  if (!Array.isArray(messageTypes)) {
+  if (!Array.isArray(messageKey)) {
     return "";
   }
 
-  return messageTypes
+  return messageKey
     .map((messageType) => renderMessage(messageType, currentLanguage))
     .filter((html) => html !== "")
     .join("");
