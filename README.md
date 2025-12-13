@@ -1,8 +1,8 @@
-# webapp-template
+# reboot-framework
 
-_This is currently a work-in-progress project._
+_This is currently work-in-progress._
 
-This is a template project to built a dynamic website with few external dependencies.
+This is a web application template for server side rendered webapps / websites based on express, deno and sqlite. 
 
 Features:
 
