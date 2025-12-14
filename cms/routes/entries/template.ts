@@ -31,7 +31,7 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
         ${locale.emptyState}
       </div>`
         : `
-      <div class="rounded-2xl border border-dark-border bg-dark-surface/40 shadow-lg overflow-auto">
+      <div class="border border-dark-border bg-dark-surface/40 shadow-lg overflow-auto">
         <table class="min-w-full text-sm text-left text-dark-muted">
           <thead class="bg-dark-bg/50 text-xs uppercase tracking-[0.3em] text-dark-muted/80">
             <tr>
@@ -51,7 +51,7 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
               return `
                   <tr class="border-t border-dark-border/70 hover:bg-dark-bg/50">
                     <td class="px-4 py-4">
-                      <span class="inline-flex items-center px-2 py-1 text-[0.65rem] font-semibold tracking-[0.2em] rounded-full ${tagClasses}">
+                      <span class="inline-flex items-center px-2 py-1 text-[0.65rem] tracking-[0.2em] rounded-full ${tagClasses}">
                         ${normalized || "entry"}
                       </span>
                     </td>
