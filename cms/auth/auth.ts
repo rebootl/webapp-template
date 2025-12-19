@@ -13,6 +13,7 @@ declare global {
       locals: {
         loggedIn: boolean;
         userName: string;
+        userId: number | null;
       };
     }
   }
@@ -31,6 +32,7 @@ export function isLoggedIn(
   req.locals = {
     loggedIn: false,
     userName: "",
+    userId: null,
   };
 
   if (!sessionId) {
@@ -52,6 +54,7 @@ export function isLoggedIn(
 
     req.locals.loggedIn = true;
     req.locals.userName = String(session.user_name) || "";
+    req.locals.userId = Number(session.user_id) || null;
 
     next();
   } catch (error) {
