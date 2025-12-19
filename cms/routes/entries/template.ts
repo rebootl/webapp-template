@@ -23,6 +23,15 @@ export default (locale: EntryLocale, entries: EntryType[]) =>
         <h1 class="text-lg font-bold text-white">Entries</h1>
       </header>
 
+      <div class="flex justify-start">
+        <a
+          href="/cms/entries/new"
+          class="inline-flex items-center justify-center rounded-md bg-green-300 px-4 py-2 text-xs font-semibold text-black transition hover:bg-emerald-300"
+        >
+          Add entry
+        </a>
+      </div>
+
       ${entries.length === 0
         ? `<div class="rounded-2xl border border-dark-border bg-dark-surface/50 p-6 text-center text-dark-muted">
         ${locale.emptyState}
