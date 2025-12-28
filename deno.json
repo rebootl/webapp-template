@@ -1,16 +1,12 @@
 {
   "imports": {
-    "@types/body-parser": "npm:@types/body-parser@^1.19.6",
-    "@types/cookie-parser": "npm:@types/cookie-parser@^1.4.9",
-    "@types/express": "npm:@types/express@^5.0.3",
-    "@types/node": "npm:@types/node@^24.5.1",
-    "bcrypt": "npm:bcrypt@^6.0.0",
+    "bcrypt": "npm:bcrypt@6.0.0",
     "express": "npm:express@5.1.0",
     "cookie-parser": "npm:cookie-parser@1.4.7",
     "body-parser": "npm:body-parser@1.19.0",
-    "@tailwindcss/cli": "npm:@tailwindcss/cli@^4.1.14", // dev
-    "tailwindcss": "npm:tailwindcss@^4.1.14", // dev
-    "uuid": "npm:uuid@^13.0.0"
+    "@tailwindcss/cli": "npm:@tailwindcss/cli@4.1.14", // dev
+    "tailwindcss": "npm:tailwindcss@4.1.14", // dev
+    "uuid": "npm:uuid@13.0.0"
   },
   "tasks": {
     "dev": "deno run --allow-all --watch main.ts",

@@ -13,7 +13,7 @@ const PORT: number = process.env.PORT ? Number(process.env.PORT) : 3002;
 
 // TODO: COOKIENAME
 
-const app: express.Application = express();
+const app = express();
 
 // modules for parsing cookies and url encoded bodies
 // NOTE: cookie-parser and body-parser are needed by subsequent apps, but should only be loaded once
