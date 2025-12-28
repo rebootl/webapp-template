@@ -6,7 +6,7 @@ import express from "express";
 export async function createEndpoints(
   app: express.Application,
   routesDir: string,
-  basePath = "/",
+  basePath = "",
 ): Promise<void> {
   const files = fs.readdirSync(routesDir);
 
@@ -37,13 +37,13 @@ export async function createEndpoints(
 
       if (file === "get.js" || file === "get.ts") {
         console.log(
-          `Creating GET endpoint at ${basePath} from ${p}`,
+          `Creating GET endpoint at "${basePath}" from ${p}`,
         );
 
         app.get(basePath, f);
       } else if (file === "post.js" || file === "post.ts") {
         console.log(
-          `Creating POST endpoint at ${basePath} from ${p}`,
+          `Creating POST endpoint at "${basePath}" from ${p}`,
         );
         app.post(basePath, f);
       }
