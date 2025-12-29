@@ -68,7 +68,7 @@ export const baseTemplate = (content: string /*, req: Request */) => {
             <ul class="flex flex-wrap gap-6 items-center justify-between">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   class="text-green-300 hover:text-emerald-300 transition-colors duration-200 flex items-center gap-2 group"
                 >
                   <svg
@@ -89,7 +89,7 @@ export const baseTemplate = (content: string /*, req: Request */) => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/nerd-stuff"
                   class="text-green-300 hover:text-emerald-300 transition-colors duration-200 flex items-center gap-2 group"
                 >
                   <svg
@@ -110,7 +110,7 @@ export const baseTemplate = (content: string /*, req: Request */) => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/cheat-sheets"
                   class="text-green-300 hover:text-emerald-300 transition-colors duration-200 flex items-center gap-2 group"
                 >
                   <svg
@@ -131,7 +131,7 @@ export const baseTemplate = (content: string /*, req: Request */) => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/links"
                   class="text-green-300 hover:text-emerald-300 transition-colors duration-200 flex items-center gap-2 group"
                 >
                   <svg
@@ -164,8 +164,8 @@ export const baseTemplate = (content: string /*, req: Request */) => {
               <p class="text-dark-muted text-sm">Copyright 2025 Cem Aydin</p>
               <p class="text-sm">
                 <a
-                  href="#"
-                  class="text-dark-muted hover:text-white transition-colors duration-200"
+                  href="/privacy-policy"
+                  class="text-green-300 hover:text-emerald-300 transition-colors duration-200"
                 >Privacy Policy</a>
               </p>
               <p class="text-dark-muted text-sm">
