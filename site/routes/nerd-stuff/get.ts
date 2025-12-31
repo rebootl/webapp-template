@@ -7,7 +7,7 @@ export type Entry = {
   id: number;
   title: string;
   content?: string;
-  created_at: string;
+  modified_at: string;
   [k: string]: unknown;
 };
 
@@ -27,7 +27,7 @@ function getContent(req: Request) {
 function getEntries(req: Request) {
   try {
     const stmt = req.db.prepare(
-      "SELECT id, title, created_at FROM entries WHERE type = ? AND private = 0 ORDER BY created_at DESC",
+      "SELECT id, title, modified_at FROM entries WHERE type = ? AND private = 0 ORDER BY created_at DESC",
     );
     const entries = stmt.all("nerdstuff");
     return entries as Entry[];
@@ -42,6 +42,6 @@ export default async (req: Request, res: Response) => {
   const entries = getEntries(req);
 
   const content = await template(entries, entry);
-  const html = baseTemplate(entry.title, content);
+  const html = baseTemplate(entry.title, content, entry.modified_at);
   res.send(html);
 };

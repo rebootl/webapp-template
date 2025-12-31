@@ -1,6 +1,6 @@
 import { html } from "../../lib/helper.ts";
 
-export const baseTemplate = (title: string, content: string) => {
+export const baseTemplate = (title: string, content: string, modificationDate: string) => {
   // const ref = req.path || '';
   // const currentLanguage = req.lang || 'en';
 
@@ -109,7 +109,17 @@ export const baseTemplate = (title: string, content: string) => {
         </header>
 
         <main class="max-w-4xl mx-auto px-6 py-12 flex-1">
-          ${content}
+          <article class="">
+            <div class="flex-1">
+              <h1 class="text-4xl font-bold mb-6 text-white">
+                ${title}
+              </h1>
+              ${content}
+              <div class="mt-8 pt-6 border-t border-dark-border text-sm text-dark-muted">
+                <p>Last modified: <time datetime="2025-11-15">${modificationDate}</time></p>
+              </div>
+            </div>
+          </article>
         </main>
 
         <footer class="border-t border-dark-border mt-auto">

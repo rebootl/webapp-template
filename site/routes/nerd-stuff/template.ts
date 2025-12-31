@@ -5,41 +5,35 @@ export type Entry = {
   id: number;
   title: string;
   content?: string;
-  created_at: string;
+  modified_at: string;
 };
 
 export default async (entries: Entry[], entry: Entry) =>
   html`
-    <!-- Main column -->
-    <div class="flex-1">
-      <h1 class="text-4xl font-bold mb-6 text-white">
-        Nerd Stuff
-      </h1>
-      <div class="md-content mb-8">
-        ${await marked.parse(entry.content || "")}
-      </div>
-      <ul class="space-y-2">
-        ${entries.length === 0
-          ? html`
-            <li class="text-slate-400">Nothing nerdy to show right now.</li>
-          `
-          : entries
-            .map(
-              (entry) =>
-                html`
-                  <li
-                    class="p-4 rounded-md border border-dark-border"
-                  >
-                    <a
-                      href="/nerd-stuff/${String(entry.id)}"
-                      class="text-green-300 hover:text-emerald-300 transition-colors duration-200"
-                    >
-                      ${entry.title}
-                    </a>
-                  </li>
-                `,
-            )
-            .join("")}
-      </ul>
+    <div class="md-content mb-8">
+      ${await marked.parse(entry.content || "")}
     </div>
+    <ul class="space-y-2">
+      ${entries.length === 0
+        ? html`
+          <li class="text-slate-400">Nothing nerdy to show right now.</li>
+        `
+        : entries
+          .map(
+            (entry) =>
+              html`
+                <li
+                  class="p-4 rounded-md border border-dark-border"
+                >
+                  <a
+                    href="/nerd-stuff/${String(entry.id)}"
+                    class="text-green-300 hover:text-emerald-300 transition-colors duration-200"
+                  >
+                    ${entry.title}
+                  </a>
+                </li>
+              `,
+          )
+          .join("")}
+    </ul>
   `;
