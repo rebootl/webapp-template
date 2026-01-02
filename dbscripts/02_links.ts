@@ -68,11 +68,13 @@ db.prepare(`
 `).run();
 
 const oldLinks = dbOld.prepare("SELECT * FROM links").all() as LegacyLink[];
-const oldLinkTags = dbOld.prepare("SELECT * FROM link_tags").all() as LegacyLinkTag[];
+const oldLinkTags = dbOld.prepare("SELECT * FROM link_tags")
+  .all() as LegacyLinkTag[];
 const oldCategories = dbOld
   .prepare("SELECT * FROM link_categories")
   .all() as LegacyLinkCategory[];
-const oldLinkToTag = dbOld.prepare("SELECT * FROM link_to_tag").all() as LegacyLinkToTag[];
+const oldLinkToTag = dbOld.prepare("SELECT * FROM link_to_tag")
+  .all() as LegacyLinkToTag[];
 
 const insertLegacyTag = db.prepare(`
   INSERT INTO link_tags (id, name, color)
@@ -149,12 +151,11 @@ for (const link of oldLinks) {
 }
 
 const insertOldRelations = db.prepare(`
-  INSERT INTO link_to_tag (id, link_id, tag_id)
-  VALUES (@id, @link_id, @tag_id)
+  INSERT INTO link_to_tag (link_id, tag_id)
+  VALUES (@link_id, @tag_id)
 `);
 for (const relation of oldLinkToTag) {
   insertOldRelations.run({
-    id: relation.id,
     link_id: relation.link_id,
     tag_id: relation.tag_id,
   });
