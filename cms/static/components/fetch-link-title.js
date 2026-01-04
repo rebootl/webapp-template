@@ -59,7 +59,7 @@ class FetchLinkTitle extends HTMLElement {
 
     this.titleStatus.textContent = 'Fetching title...';
     try {
-      const response = await fetch(`/api/get-title?url=${encodeURIComponent(url)}`);
+      const response = await fetch(`/cms/links/get-title?url=${encodeURIComponent(url)}`);
       if (response.status === 200) {
         const data = await response.json();
         if (data.success) {

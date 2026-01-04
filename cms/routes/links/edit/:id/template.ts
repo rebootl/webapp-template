@@ -27,17 +27,34 @@ export default (
           <h1 class="text-2xl font-bold text-white">Edit Link</h1>
         </header>
         <div class="space-y-4">
-          <label class="space-y-2 block">
-            <span class="text-xs text-dark-muted">Title</span>
-            <input
-              type="text"
-              name="title"
-              value="${link.title}"
-              class="w-full rounded-xl border border-dark-border bg-dark-bg/50 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
-              required
-            />
-          </label>
-          <label class="space-y-2 block">
+          <fetch-link-title>
+            <label class="space-y-2 block">
+              <span class="text-xs text-dark-muted">URL</span>
+              <input
+                type="text"
+                name="url"
+                placeholder="Url"
+                class="w-full rounded-xl border border-dark-border bg-dark-bg/50 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+                value="${link.url}"
+              />
+            </label>
+            <small><span title-status class="text-dimmed"></span></small>
+            <label class="space-y-2 block">
+              <span class="text-xs text-dark-muted">Title</span>
+              <input
+                type="text"
+                name="title"
+                placeholder="Title"
+                class="w-full rounded-xl border border-dark-border bg-dark-bg/50 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+                value="${link.title}"
+              />
+            </label>
+          </fetch-link-title>
+          <script
+            type="module"
+            src="/cms/static/components/fetch-link-title.js"
+          ></script>
+          <!--<label class="space-y-2 block">
             <span class="text-xs text-dark-muted">URL</span>
             <input
               type="url"
@@ -47,6 +64,16 @@ export default (
               required
             />
           </label>
+          <label class="space-y-2 block">
+            <span class="text-xs text-dark-muted">Title</span>
+            <input
+              type="text"
+              name="title"
+              value="${link.title}"
+              class="w-full rounded-xl border border-dark-border bg-dark-bg/50 px-4 py-3 text-base text-white focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/50"
+              required
+            />
+          </label>-->
           <div class="space-y-2">
             <span class="text-xs text-dark-muted">Comment</span>
             <textarea
